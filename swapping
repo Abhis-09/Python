@@ -1,0 +1,12 @@
+# Swap with third variable 
+num1 = int(input("Enter the value of num1: "))
+num2 = int(input("Enter the value of num2: "))
+
+#opration
+num1 = num1 + num2  
+num2 = num1 - num2  
+num1 = num1 - num2 
+
+print(f" The After swapping num1 is : {num1}")
+print(f" The Before swapping num2 is : {num2}")
+
