@@ -1,0 +1,9 @@
+#Sum of N_Number_ForLoop
+
+n = int(input("Enter The Value: "))
+
+total = 0
+for i in range(1, n + 1):
+    total += i
+
+print(f"The sum of first {n} numbers is: {total}")
