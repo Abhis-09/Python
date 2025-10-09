@@ -1,0 +1,19 @@
+#Sum of Factorial of Odd-Even Numbers
+num = int(input("Enter a number: "))
+
+fact = 1
+for i in range(1, num + 1):
+    fact *= i
+
+even_total = 0
+odd_total = 0
+
+for i in range(1, num + 1):
+    if i % 2 == 0:
+        even_total += i
+    else:
+        odd_total += i
+
+print(f"Fact of {num} is: {fact}")
+print(f"Sum of even numbers up to {num} is: {even_total}")
+print(f"Sum of odd numbers up to {num} is: {odd_total}")
