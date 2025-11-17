@@ -1,0 +1,39 @@
+#Tuple_examples
+
+
+# Define a tuple with mixed data types
+my_tuple = (10, 20, 30, "hello", True)
+
+# Print the entire tuple
+print(my_tuple)
+
+# Access and print the 3rd element (index 2)
+print(my_tuple[2])
+
+# Print all elements starting from index 2 onwards
+print(my_tuple[2:])
+
+# Print the entire tuple using slice
+print(my_tuple[:])
+
+# Print the first 3 elements of the tuple
+print(my_tuple[:3])
+
+# Iterate over the tuple and print each element
+for i in my_tuple:
+    print(i)
+
+# Check if "hello" is present in the tuple and print a message
+if "hello" in my_tuple:
+    print("---------------------------Present")
+
+# Convert the tuple into a list
+my_tuple1 = list(my_tuple)
+
+# Append a new element multiple times into the list
+for i in my_tuple1:
+    my_tuple1.append("hekhfda")
+    # The commented line "print(i)" would print the element in the iteration, but it is commented out.
+
+# Print the modified list (with repeated "hekhfda" values)
+print(my_tuple1)
