@@ -1,0 +1,113 @@
+# Creating a set (duplicates automatically removed)
+my_set = {1, 2, 3, 3, 4, 5}
+print("Original Set (duplicates removed):", my_set)
+
+# Creating a set using set() constructor
+constructed_set = set([10, 20, 20, 30])
+print("Constructed Set:", constructed_set)
+
+# -------------------------------------------
+# PROPERTIES OF SET
+# -------------------------------------------
+
+print("\n--- Properties of Set ---")
+
+# 1. Unordered (no indexing)
+print("Set is unordered -> cannot access with index")
+
+# 2. No duplicate elements
+print("No duplicates ->", {1, 2, 2, 3})
+
+# 3. Mutable (we can add/remove items)
+mutable_set = {1, 2, 3}
+mutable_set.add(4)
+print("Mutable set (after add/remove):", mutable_set)
+mutable_set.remove(2)
+print("Mutable set (after add/remove):", mutable_set)
+
+# 4. Elements must be immutable
+valid_set = {1, 2.3, "hello", (1, 2)}
+print("Valid set with immutable items:", valid_set)
+
+# Invalid -> Uncommenting below will give error:
+# invalid_set = {[1,2,3]}   # list is mutable, not allowed
+
+
+# -------------------------------------------
+# BASIC OPERATIONS
+# -------------------------------------------
+
+print("\n--- Basic Operations ---")
+
+s = {1, 2, 3}
+print("Original Set:", s)
+
+# Add element
+s.add(4)
+print("After add(4):", s)
+
+# Remove element (error if not present)
+s.remove(2)
+print("After remove(2):", s)
+
+# Discard element (no error)
+value = s.discard(10)
+print("After discard(10) – no error:", s)
+print(f"The value which is deleted is {value}")
+
+# Check membership
+print("Is 3 in set?", 3 in s)
+print("Is 10 in set?", 10 in s)
+
+
+# -------------------------------------------
+# MATHEMATICAL SET OPERATIONS
+# -------------------------------------------
+
+print("\n--- Mathematical Set Operations ---")
+
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
+
+print("Set A:", A)
+print("Set B:", B)
+
+print("Union (A | B):", A | B)
+print("Intersection (A & B):", A & B)
+print("Difference (A - B):", A - B)
+print("Difference (B - A):", B - A)
+print("Symmetric Difference (A ^ B):", A ^ B)
+
+
+# -------------------------------------------
+# OTHER USEFUL METHODS
+# -------------------------------------------
+
+print("\n--- Other Useful Methods ---")
+
+c = {1, 2, 3}
+print("Current Set:", c)
+
+# pop() removes random item
+popped_item = c.pop()
+print("After pop() removed:", popped_item)
+print("Set after pop:", c)
+
+# clear() empties the set
+c.clear()
+print("After clear():", c)
+
+
+# -------------------------------------------
+# FROZENSET (IMMUTABLE SET)
+# -------------------------------------------
+
+print("\n--- Frozenset (Immutable Set) ---")
+
+fs = frozenset([1, 2, 3, 3, 4])
+print("Frozenset:", fs)
+
+# You cannot do -> fs.add(5) or fs.remove(1) (will give error)
+
+
+print("\n--- PROGRAM COMPLETE ---")
