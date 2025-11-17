@@ -1,0 +1,34 @@
+#UserDefine_Functions
+
+def hellow():
+    print("function call ------- Heloow")
+
+hellow()
+
+def add(n1,n2):
+    print(f"{n1} + {n2} = {n1+n2}")
+
+
+add(2,4)
+
+
+
+def add1(n1,n2):
+    return f"{n1} + {n2} = {n1+n2}"
+
+print(add1(23,54))
+
+def add3(n1=3,n2=4):
+    print(f"{n1} + {n2} = {n1+n2}")
+
+add3(12,23)
+add3(12)
+add3()
+
+    
+
+"""
+calcualtor
+circum of circle
+area of circle
+"""
