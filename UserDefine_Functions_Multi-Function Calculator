@@ -1,0 +1,94 @@
+#UserDefine_Functions_"Multi-Function Calculator"
+
+import math
+
+# Function for basic calculator operations
+def calculator():
+    print("\nSimple Calculator: ")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    
+    try:
+        operation = int(input("Select an operation (1/2/3/4): "))
+        
+        num1 = float(input("Enter the first number: "))
+        num2 = float(input("Enter the second number: "))
+        
+        if operation == 1:
+            print(f"The result is: {num1 + num2}")
+        elif operation == 2:
+            print(f"The result is: {num1 - num2}")
+        elif operation == 3:
+            print(f"The result is: {num1 * num2}")
+        elif operation == 4:
+            if num2 != 0:
+                print(f"The result is: {num1 / num2}")
+            else:
+                print("Error: Division by zero!")
+        else:
+            print("Invalid selection.")
+    except ValueError:
+        print("Invalid input. Please enter valid numbers.")
+
+# Function to calculate the circumference of a circle
+def calculate_circumference(radius):
+    """Calculate the circumference of a circle."""
+    return 2 * math.pi * radius
+
+# Function to calculate the area of a circle
+def calculate_area(radius):
+    """Calculate the area of a circle."""
+    return math.pi * radius**2
+
+# Function for circle-related calculations
+def circle_calculator():
+    try:
+        radius = float(input("\nEnter the radius of the circle: "))
+        if radius <= 0:
+            print("Please enter a positive value for the radius.")
+            return
+        
+        area = calculate_area(radius)
+        circumference = calculate_circumference(radius)
+        
+        print(f"\nFor a circle with radius {radius}:")
+        print(f"Area: {area:.2f}")
+        print(f"Circumference: {circumference:.2f}")
+        
+    except ValueError:
+        print("Invalid input. Please enter a valid number for the radius.")
+
+# Main program
+def main():
+    print("Welcome to the 3-in-1 Program!")
+    
+    while True:
+        print("\nChoose an option:")
+        print("1. Basic Calculator")
+        print("2. Circumference of Circle")
+        print("3. Area of Circle")
+        print("4. Exit")
+        
+        try:
+            choice = int(input("Enter your choice (1/2/3/4): "))
+            
+            if choice == 1:
+                calculator()
+            elif choice == 2:
+                circle_calculator()
+            elif choice == 3:
+                circle_calculator()
+            elif choice == 4:
+                print("Exiting the program. Goodbye!")
+                break
+            else:
+                print("Invalid choice. Please try again.")
+        
+        except ValueError:
+            print("Invalid input. Please enter a number between 1 and 4.")
+
+# Run the program
+if __name__ == "__main__":
+    main()
