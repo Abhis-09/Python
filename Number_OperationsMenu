@@ -1,0 +1,91 @@
+#Number Operations Menu
+def is_armstrong(num):
+    temp = num
+    sum = 0
+    while temp > 0:
+        digit = temp % 10
+        sum += digit ** 3  # Only for 3-digit numbers; can be made general
+        temp //= 10
+    return num == sum
+
+def is_palindrome(num):
+    temp = num
+    rev = 0
+    while temp > 0:
+        digit = temp % 10
+        rev = rev * 10 + digit
+        temp //= 10
+    return num == rev
+
+def reverse_number(num):
+    reversed_num = 0
+    while num != 0:
+        digit = num % 10
+        reversed_num = reversed_num * 10 + digit
+        num //= 10
+    return reversed_num
+
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+def fibonacci_series(n):
+    a, b = 0, 1
+    series = []
+    for _ in range(n):
+        series.append(a)
+        a, b = b, a + b
+    return series
+
+# Menu
+while True:
+    print("\n--- MENU ---")
+    print("1. Armstrong Number")
+    print("2. Palindrome Number")
+    print("3. Reverse Number")
+    print("4. Prime Number")
+    print("5. Fibonacci Series")
+    print("6. Exit")
+    
+    choice = int(input("Enter your choice (1-6): "))
+
+    if choice == 1:
+        num = int(input("Enter a number: "))
+        if is_armstrong(num):
+            print("Armstrong number")
+        else:
+            print("Not an Armstrong number")
+
+    elif choice == 2:
+        num = int(input("Enter a number: "))
+        if is_palindrome(num):
+            print("Palindrome number")
+        else:
+            print("Not a Palindrome number")
+
+    elif choice == 3:
+        num = int(input("Enter a number: "))
+        print(f"Reversed Number: {reverse_number(num)}")
+
+    elif choice == 4:
+        num = int(input("Enter a number: "))
+        if is_prime(num):
+            print(f"{num} is a prime number")
+        else:
+            print(f"{num} is not a prime number")
+
+    elif choice == 5:
+        num = int(input("Enter the number of terms: "))
+        print("Fibonacci series:")
+        print(" ".join(str(x) for x in fibonacci_series(num)))
+
+    elif choice == 6:
+        print("Exiting program.")
+        break
+
+    else:
+        print("Invalid choice. Please choose between 1 and 6.")
