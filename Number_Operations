@@ -1,0 +1,110 @@
+#Number_Operations Menu & Function Based.
+
+# Function to check if a number is an Armstrong number
+def check_armstrong(num):
+    num_str = str(num)
+    num_len = len(num_str)
+    total = sum(int(digit) ** num_len for digit in num_str)
+    if total == num:
+        print(f"{num} is an Armstrong number.")
+    else:
+        print(f"{num} is not an Armstrong number.")
+
+# Function to check if a number is a palindrome
+def check_palindrome(num):
+    if str(num) == str(num)[::-1]:
+        print(f"{num} is a palindrome number.")
+    else:
+        print(f"{num} is not a palindrome number.")
+
+# Function to reverse a number
+def reverse_number(num):
+    original_num = num
+    reversed_num = 0
+    while num > 0:
+        digit = num % 10
+        reversed_num = reversed_num * 10 + digit
+        num = num // 10
+    print(f"The reverse of {original_num} is {reversed_num}.")
+
+# Function to check if a number is prime
+def check_prime(num):
+    if num <= 1:
+        print(f"{num} is not a prime number.")
+    else:
+        for i in range(2, int(num ** 0.5) + 1):
+            if num % i == 0:
+                print(f"{num} is not a prime number.")
+                return
+        print(f"{num} is a prime number.")
+
+# Function to generate Fibonacci series up to 'n' terms
+def generate_fibonacci(n):
+    if n <= 0:
+        print("Please enter a positive integer.")
+    elif n == 1:
+        print("Fibonacci series:", 0)
+    else:
+        fib = [0, 1]
+        for i in range(2, n):
+            fib.append(fib[i-1] + fib[i-2])
+        print("Fibonacci series:", *fib[:n])
+
+# Main program to display a menu and execute the chosen operation
+def main():
+    while True:
+        print("\n===== MENU =====")
+        print("1. Check Armstrong Number")
+        print("2. Check Palindrome Number")
+        print("3. Reverse a Number")
+        print("4. Check Prime Number")
+        print("5. Generate Fibonacci Series")
+        print("6. Exit")
+
+        choice = input("Enter your choice (1-6): ")
+
+        if choice == '1':
+            try:
+                num = int(input("Enter the number: "))
+                check_armstrong(num)
+            except ValueError:
+                print("Please enter a valid number.")
+
+        elif choice == '2':
+            try:
+                num = int(input("Enter the number: "))
+                check_palindrome(num)
+            except ValueError:
+                print("Please enter a valid number.")
+
+        elif choice == '3':
+            try:
+                num = int(input("Enter the number: "))
+                reverse_number(num)
+            except ValueError:
+                print("Please enter a valid number.")
+
+        elif choice == '4':
+            try:
+                num = int(input("Enter the number: "))
+                check_prime(num)
+            except ValueError:
+                print("Please enter a valid number.")
+
+        elif choice == '5':
+            try:
+                n = int(input("Enter the number of terms: "))
+                generate_fibonacci(n)
+            except ValueError:
+                print("Please enter a valid number.")
+
+        elif choice == '6':
+            print("Exiting the program. Goodbye!")
+            break
+
+        else:
+            print("Invalid choice. Please enter a number between 1 and 6.")
+
+# Run the program
+if __name__ == "__main__":
+    main()
