@@ -1,0 +1,82 @@
+# -----------------------------------------
+# PYTHON DICTIONARY – ALL FEATURES IN ONE
+# -----------------------------------------
+
+# 1. Creating a dictionary
+student = {
+    "name": "John",
+    "age": 21,
+    "marks": [45, 65, 76]
+}
+print("Original:", student)
+
+# 2. Accessing values
+print("Name:", student["name"])
+print("Marks (safe):", student.get("marks", "Not found"))
+
+# 3. Adding / updating
+student["grade"] = "A"
+student["age"] = 22
+print("After Add/Update:", student)
+
+# 4. Removing items
+student.pop("marks")
+print("After Removals:", student)
+student.popitem()
+print("After Removals:", student)
+del student["age"]
+print("After Removals:", student)
+
+student = {
+    "name": "John",
+    "age": 21,
+    "marks": [45, 65, 76]
+}
+
+# 5. Looping through dictionary
+print("\nLooping Keys:")
+for key in student:
+    print(key)
+
+print("\nLooping Values:")
+for value in student.values():
+    print(value)
+
+print("\nLooping Key-Value pairs:")
+for key, value in student.items():
+    print(key, "=", value)
+
+# 6. Dictionary methods
+print("\nDictionary Methods Example:")
+print("Keys:", student.keys())
+print("Values:", student.values())
+print("Items:", student.items())
+
+student.update({
+    "country": "INDIA",
+    "age": 25
+})
+print("After update():", student)
+
+# 7. Check if key exists
+if "name" in student:
+    print("Key 'name' exists in student")
+
+# 8. Dictionary comprehension
+squares = {x: x * x for x in range(1, 7)}
+print("Squares:", squares)
+
+# 9. Nested Dictionary
+classroom = {
+    "student1": {"name": "Alice", "age": 20},
+    "student2": {"name": "Bob", "age": 22}
+}
+print("Nested Dictionary:", classroom)
+
+# 10. Copy dictionary
+copy_dict = student.copy()
+print("Copy:", copy_dict)
+
+# 11. Clear dictionary
+copy_dict.clear()
+print("After clear():", copy_dict)
