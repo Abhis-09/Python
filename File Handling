@@ -1,0 +1,186 @@
+# ======================================================
+# 1. WRITE FILE (NORMAL OPEN)
+# ======================================================
+
+print("file open")
+
+file = open("example.doc", "w")   # open for writing
+file.write('num1 = int(input("Enter the value "))\nprint(f"The value is : {num1}")')
+
+file.close()
+
+print("file close --- and program complete --- ")
+
+
+# ======================================================
+# 2. WRITE FILE USING WITH (RECOMMENDED)
+# ======================================================
+
+with open("example.txt", "w") as f:
+    f.write("Hello using with!")
+
+
+# ======================================================
+# 3. APPEND FILE USING WITH
+# ======================================================
+
+with open("example.txt", "a") as f:
+    f.write("\nHello using with!")
+
+
+# ======================================================
+# 4. READ ENTIRE FILE
+# ======================================================
+
+with open("example.txt", "r") as f:
+    content = f.read()
+    print(content)
+
+
+# ======================================================
+# 5. READ FILE LINE-BY-LINE
+# ======================================================
+
+with open("example.txt", "r") as f:
+    for line in f:
+        print(line.strip())
+
+
+# ======================================================
+# 6. READ FIRST LINE & FIRST 5 CHARACTERS
+# ======================================================
+
+with open("example.txt", "r") as f:
+    print(f.readline())
+    print(f.read(5))
+
+
+# ======================================================
+# 7. READ ALL LINES INTO A LIST
+# ======================================================
+
+with open("example.txt", "r") as f:
+    lines = f.readlines()
+    print(lines)
+
+
+# ======================================================
+# 8. CHECK IF FILE EXISTS
+# ======================================================
+
+import os
+if os.path.exists("example.py"):
+    print("File exists!")
+else:
+    print("File not found.")
+
+
+# ======================================================
+# 9. RENAME A FILE
+# ======================================================
+
+os.rename("example.txt", "new_name.txt")
+
+
+# ======================================================
+# 10. DELETE A FILE
+# ======================================================
+
+if os.path.exists("new_name.txt"):
+    os.remove("new_name.txt")
+
+
+# ======================================================
+# 11. CREATE A FOLDER
+# ======================================================
+
+os.mkdir("myfolder")
+
+
+# ======================================================
+# 12. LIST FILES IN CURRENT DIRECTORY
+# ======================================================
+
+print(os.listdir("."))
+
+
+# ======================================================
+# 13. BINARY FILE WRITE & READ
+# ======================================================
+
+# Write binary
+with open("binary.dat", "wb") as f:
+    f.write(b"\x00\x01\x02")
+
+# Read binary
+with open("binary.dat", "rb") as f:
+    data = f.read()
+    print(data)
+
+
+# ======================================================
+# 14. JSON FILE HANDLING
+# ======================================================
+
+import json
+data = {"name": "John", "age": 25}
+
+# write
+with open("data.json", "w") as f:
+    json.dump(data, f)
+
+# read
+with open("data.json", "r") as f:
+    result = json.load(f)
+    print(result)
+
+
+# ======================================================
+# 15. CSV FILE HANDLING
+# ======================================================
+
+import csv
+with open("data.csv", "w", newline="") as f:
+    writer = csv.writer(f)
+    writer.writerow(["Name", "Age"])
+    writer.writerow(["John", 25])
+
+
+# ======================================================
+# 16. MOVE FILE
+# ======================================================
+
+import shutil
+shutil.move("data.csv", "myfolder/data.csv")
+
+
+# ======================================================
+# 17. COPY FILE
+# ======================================================
+
+shutil.copy("data.json", "copy_data.json")
+
+
+# ======================================================
+# 18. SIMPLE WRITE → APPEND → READ → DELETE
+# ======================================================
+
+with open("demo.txt", "w") as f:
+    f.write("Hello\n")
+
+with open("demo.txt", "a") as f:
+    f.write("World\n")
+
+with open("demo.txt", "r") as f:
+    print(f.read())
+
+os.remove("demo.txt")
+
+
+# ======================================================
+# 19. REVERSE FILE CONTENT
+# ======================================================
+
+with open("example.txt", "r") as f:
+    content = f.read()
+    print(content[::-1])
