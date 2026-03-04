@@ -1,0 +1,89 @@
+# Set Operations Program (All Input From User)
+
+def display_menu():
+    print("\n--- Set Operations Menu ---")
+    print("1. Search an element")
+    print("2. Insert an element")
+    print("3. Update an element")
+    print("4. Delete an element")
+    print("5. Clear the set")
+    print("6. Show the set")
+    print("7. Exit")
+
+def convert(value):
+    """Convert to int/float if possible."""
+    if value.isdigit():
+        return int(value)
+    elif value.replace('.', '', 1).isdigit():
+        return float(value)
+    return value
+
+def create_set_from_user():
+    user_input = input("Enter elements (comma-separated): ")
+    items = user_input.split(",")
+    result_set = set()
+
+    for item in items:
+        item = item.strip()
+        result_set.add(convert(item))
+
+    return result_set
+
+def search_element(s):
+    element = convert(input("Enter element to search: "))
+    if element in s:
+        print(f"{element} found.")
+    else:
+        print(f"{element} NOT found.")
+
+def insert_element(s):
+    element = convert(input("Enter element to insert: "))
+    s.add(element)
+    print(f"{element} inserted.")
+
+def update_element(s):
+    old = convert(input("Enter element to update: "))
+    if old in s:
+        new = convert(input("Enter new element: "))
+        s.remove(old)
+        s.add(new)
+        print(f"{old} updated to {new}.")
+    else:
+        print(f"{old} not found.")
+
+def delete_element(s):
+    element = convert(input("Enter element to delete: "))
+    if element in s:
+        s.remove(element)
+        print(f"{element} deleted.")
+    else:
+        print(f"{element} not found.")
+
+def main():
+    my_set = create_set_from_user()
+
+    while True:
+        display_menu()
+        choice = input("Enter your choice (1–7): ")
+
+        if choice == '1':
+            search_element(my_set)
+        elif choice == '2':
+            insert_element(my_set)
+        elif choice == '3':
+            update_element(my_set)
+        elif choice == '4':
+            delete_element(my_set)
+        elif choice == '5':
+            my_set.clear()
+            print("Set cleared.")
+        elif choice == '6':
+            print(f"Current Set: {my_set}")
+        elif choice == '7':
+            print("Exiting program.")
+            break
+        else:
+            print("Invalid choice. Enter 1–7.")
+
+if __name__ == "__main__":
+    main()
