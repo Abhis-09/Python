@@ -1,0 +1,57 @@
+# ======================================================
+#                PROGRAM 1: BASIC INHERITANCE
+# ======================================================
+
+class Animal:
+    def speak(self):
+        print("This animal makes a sound")
+
+class Dog(Animal):   # Dog inherits from Animal
+    def bark(self):
+        print("Dog barks")
+
+d = Dog()
+d.speak()   # inherited method
+d.bark()    # own method
+
+
+# ======================================================
+#     PROGRAM 2: INHERITING ATTRIBUTES USING __init__
+# ======================================================
+
+class Person:
+    def __init__(self, name):
+        self.name = name
+
+    def show_name(self):
+        print("Name:", self.name)
+
+class Student(Person):
+    def __init__(self, name, roll_no):
+        super().__init__(name)   # Call parent constructor
+        self.roll_no = roll_no
+
+    def show_details(self):
+        print("Name:", self.name)
+        print("Roll No:", self.roll_no)
+
+s = Student("Alice", 101)
+s.show_name()
+s.show_details()
+
+
+# ======================================================
+#        PROGRAM 3: USING super() TO CALL PARENT METHOD
+# ======================================================
+
+class Vehicle:
+    def start(self):
+        print("Vehicle is starting")
+
+class Bike(Vehicle):
+    def start(self):
+        super().start()   # Call parent method
+        print("Bike is ready to ride")
+
+b = Bike()
+b.start()
