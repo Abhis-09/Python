@@ -1,0 +1,148 @@
+# ------------------------------------------
+# 1. Polymorphism using Functions
+# ------------------------------------------
+
+print(len("Hello"))         # String
+print(len([1, 2, 3]))       # List
+print(len((4, 5, 6)))       # Tuple
+
+
+# ------------------------------------------
+# 2. Polymorphism using Operators
+# ------------------------------------------
+
+print(10 + 5)               # Integer addition
+print("Hello " + "World")   # String concatenation
+print([1, 2] + [3, 4])      # List concatenation
+
+
+# ------------------------------------------
+# 3. Method Overriding (Inheritance)
+# ------------------------------------------
+
+class Animal:
+    def speak(self):
+        print("Animal makes a sound")
+
+class Dog(Animal):
+    def speak(self):
+        print("Dog barks")
+
+class Cat(Animal):
+    def speak(self):
+        print("Cat meows")
+
+animals = [Dog(), Cat(), Animal()]
+
+for a in animals:
+    a.speak()
+
+
+# ------------------------------------------
+# 4. Polymorphism using Abstract Class
+# ------------------------------------------
+
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+
+class Rectangle(Shape):
+    def area(self):
+        return 10 * 5
+
+class Circle(Shape):
+    def area(self):
+        return 3.14 * 7 * 7
+
+shapes = [Rectangle(), Circle()]
+for shape in shapes:
+    print("Area:", shape.area())
+
+
+# ------------------------------------------
+# 5. Duck Typing Examples
+# ------------------------------------------
+
+# Example 1 - Area
+class Rectangle:
+    def area(self):
+        return 10 * 5
+
+class Circle:
+    def area(self):
+        return 3.14 * 7 * 7
+
+class Triangle:
+    def area(self):
+        return 0.5 * 6 * 4
+
+def calculate_area(shape):
+    print("Area:", shape.area())
+
+calculate_area(Rectangle())
+calculate_area(Circle())
+calculate_area(Triangle())
+
+
+# Example 2 - Salary
+class FullTimeEmployee:
+    def calculate_salary(self):
+        return 50000
+
+class PartTimeEmployee:
+    def calculate_salary(self):
+        return 20000
+
+class Freelancer:
+    def calculate_salary(self):
+        return 30000
+
+def get_salary(emp):
+    print("Salary:", emp.calculate_salary())
+
+get_salary(FullTimeEmployee())
+get_salary(PartTimeEmployee())
+get_salary(Freelancer())
+
+
+# Example 3 - Payment System
+class CreditCard:
+    def pay(self, amount):
+        return f"Paid {amount} using Credit Card"
+
+class UPI:
+    def pay(self, amount):
+        return f"Paid {amount} using UPI"
+
+class Cash:
+    def pay(self, amount):
+        return f"Paid {amount} in Cash"
+
+def make_payment(method, amount):
+    print(method.pay(amount))
+
+make_payment(CreditCard(), 1000)
+make_payment(UPI(), 500)
+make_payment(Cash(), 200)
+
+
+# ------------------------------------------
+# 6. Duck Typing (Simple Example)
+# ------------------------------------------
+
+class Bird:
+    def fly(self):
+        print("Bird can fly")
+
+class Airplane:
+    def fly(self):
+        print("Airplane can fly")
+
+def make_it_fly(obj):
+    obj.fly()
+
+make_it_fly(Bird())
+make_it_fly(Airplane())
