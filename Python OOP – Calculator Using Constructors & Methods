@@ -1,0 +1,74 @@
+# ======================================================
+#                PROGRAM 1: BASIC ADDITION
+# ======================================================
+
+class Calculate1:
+    def __init__(self):
+        print("=== Program 1: Constructor Called ===")
+
+    def add(self, num1, num2):
+        print("Program 1: Addition Result")
+        print(f"{num1} + {num2} = {num1 + num2}")
+
+
+# Object creation and method call
+obj1 = Calculate1()
+obj1.add(12, 23)
+
+
+# ======================================================
+#         PROGRAM 2: ADDITION USING CONSTRUCTOR INPUT
+# ======================================================
+
+class Calculate2:
+    def __init__(self, num1, num2):
+        print("\n=== Program 2: Constructor Called ===")
+        self.num1 = num1
+        self.num2 = num2
+
+    def add(self):
+        print("Program 2: Addition Result")
+        print(f"{self.num1} + {self.num2} = {self.num1 + self.num2}")
+
+
+# User input for Program 2
+num1 = int(input("\nProgram 2 → Enter value 1: "))
+num2 = int(input("Program 2 → Enter value 2: "))
+
+obj2 = Calculate2(num1, num2)
+obj2.add()
+
+
+# ======================================================
+#           PROGRAM 3: FULL CALCULATOR CLASS
+# ======================================================
+
+class Calculator:
+    def __init__(self, a, b):
+        print("\n=== Program 3: Constructor Called ===")
+        self.a = a
+        self.b = b
+
+    def add(self):
+        print("Addition      =", self.a + self.b)
+
+    def subtract(self):
+        print("Subtraction   =", self.a - self.b)
+
+    def multiply(self):
+        print("Multiplication=", self.a * self.b)
+
+    def divide(self):
+        print("Division      =", self.a / self.b)
+
+
+# User input for Program 3
+a = int(input("\nProgram 3 → Enter first number: "))
+b = int(input("Program 3 → Enter second number: "))
+
+# Object creation & method calls
+obj3 = Calculator(a, b)
+obj3.add()
+obj3.subtract()
+obj3.multiply()
+obj3.divide()
