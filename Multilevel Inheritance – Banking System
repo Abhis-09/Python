@@ -1,0 +1,105 @@
+# ======================================================
+#          MULTILEVEL INHERITANCE – BANKING SYSTEM
+# ======================================================
+
+# Base class
+class BankAccount:
+    def __init__(self, acc_no, name, balance):
+        self.acc_no = acc_no
+        self.name = name
+        self.balance = balance
+
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"₹{amount} deposited successfully.")
+
+    def display_details(self):
+        print("\n--- Account Details ---")
+        print(f"Account No : {self.acc_no}")
+        print(f"Name       : {self.name}")
+        print(f"Balance    : ₹{self.balance}")
+
+
+# Level 2
+class SavingsAccount(BankAccount):
+    def add_interest(self):
+        interest = self.balance * 0.04
+        self.balance += interest
+        print(f"Interest added: ₹{interest}")
+
+
+# Level 3
+class PremiumSavingsAccount(SavingsAccount):
+    def withdraw(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            print(f"₹{amount} withdrawn successfully.")
+        else:
+            print("Insufficient balance.")
+
+    def premium_benefits(self):
+        print("\n--- Premium Benefits ---")
+        print("- Free ATM Withdrawals")
+        print("- Higher Interest Rate")
+        print("- Priority Customer Service")
+
+
+# Level 4
+class OnlineBankingAccount(PremiumSavingsAccount):
+    def online_transfer(self, amount):
+        if amount <= self.balance:
+            self.balance -= amount
+            print(f"Online transfer of ₹{amount} successful.")
+        else:
+            print("Transfer failed: Insufficient balance.")
+
+
+# ------------------ MAIN PROGRAM ------------------
+
+print("===== Welcome to Online Banking System =====")
+
+acc_no = int(input("Enter Account Number: "))
+name = input("Enter Account Holder Name: ")
+balance = float(input("Enter Initial Balance: "))
+
+account = OnlineBankingAccount(acc_no, name, balance)
+
+while True:
+    print("\n===== MENU =====")
+    print("1. Display Account Details")
+    print("2. Deposit Money")
+    print("3. Withdraw Money")
+    print("4. Add Interest")
+    print("5. Online Transfer")
+    print("6. Premium Benefits")
+    print("7. Exit")
+
+    choice = int(input("Enter your choice (1-7): "))
+
+    if choice == 1:
+        account.display_details()
+
+    elif choice == 2:
+        amount = float(input("Enter deposit amount: "))
+        account.deposit(amount)
+
+    elif choice == 3:
+        amount = float(input("Enter withdrawal amount: "))
+        account.withdraw(amount)
+
+    elif choice == 4:
+        account.add_interest()
+
+    elif choice == 5:
+        amount = float(input("Enter transfer amount: "))
+        account.online_transfer(amount)
+
+    elif choice == 6:
+        account.premium_benefits()
+
+    elif choice == 7:
+        print("Thank you for using our banking service.")
+        break
+
+    else:
+        print("Invalid choice! Please try again.")
