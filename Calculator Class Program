@@ -1,0 +1,63 @@
+# Program: Calculator Class Program
+
+# 1) Simple Class With Add Method
+class calculate:
+    def __init__(self):
+        print("this is constructor-----")
+        
+    def add(self, num1, num2):
+        print("Function call")
+        print(f"{num1} + {num2} = {num1 + num2}")
+
+# object creation
+obj = calculate()
+obj.add(12, 23)
+
+
+# 2) Class With Constructor Taking Two Inputs
+class calculate:
+    def __init__(self, num1, num2):
+        print("this is constructor-----")
+        self.num1 = num1
+        self.num2 = num2
+        
+    def add(self):
+        print("Function call")
+        print(f"{self.num1} + {self.num2} = {self.num1 + self.num2}")
+
+# object creation
+num1 = int(input("Enter the value : "))
+num2 = int(input("Enter the value : "))
+
+obj = calculate(num1, num2)
+obj.add()
+
+
+# 3) Complete Calculator Class (Add, Sub, Mul, Div)
+class Calculator:
+    def __init__(self, a, b):
+        print("Constructor called...")
+        self.a = a
+        self.b = b
+
+    def add(self):
+        print("Addition =", self.a + self.b)
+
+    def subtract(self):
+        print("Subtraction =", self.a - self.b)
+
+    def multiply(self):
+        print("Multiplication =", self.a * self.b)
+
+    def divide(self):
+        print("Division =", self.a / self.b)
+
+# object creation
+a = int(input("Enter first number: "))
+b = int(input("Enter second number: "))
+
+obj = Calculator(a, b)
+obj.add()
+obj.subtract()
+obj.multiply()
+obj.divide()
